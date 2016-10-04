@@ -30,7 +30,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
   <template>
     <style>
       :host {
-        --app-primary-color: #4285f4;
+        --app-primary-color: #0091EA;
         --app-secondary-color: black;
 
         display: block;
@@ -44,27 +44,12 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
         --paper-icon-button-ink-color: white;
       }
 
-      .drawer-list {
-        margin: 0 20px;
+      paper-tabs {
+        --paper-tabs: {
+          background-color: #0091EA;
+         };
       }
 
-      .drawer-list a {
-        display: block;
-
-        padding: 0 16px;
-
-        text-decoration: none;
-
-        color: var(--app-secondary-color);
-
-        line-height: 40px;
-      }
-
-      .drawer-list a.iron-selected {
-        color: black;
-
-        font-weight: bold;
-      }
     </style>
 
     <app-drawer-layout fullbleed>
