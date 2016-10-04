@@ -3,8 +3,8 @@
   "short_name": "Contacts",
   "start_url": "/?homescreen=1",
   "display": "standalone",
-  "theme_color": "#009688",
-  "background_color": "#009688",
+  "theme_color": "#0091EA",
+  "background_color": "#0091EA",
   "icons": [
     {
       "src": "images/manifest/icon-192x192.png",
