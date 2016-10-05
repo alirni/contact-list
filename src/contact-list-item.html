@@ -1,0 +1,43 @@
+<link rel="import" href="../bower_components/polymer/polymer.html" />
+<link rel="import" href="my-icons.html">
+<link rel="import" href="shared-styles.html" />
+<link rel="import" href="../bower_components/paper-icon-button/paper-icon-button.html" />
+<link rel="import" href="contact-circle.html" />
+<link rel="import" href="../bower_components/iron-flex-layout/iron-flex-layout.html" />
+<!--<link rel="import" href="../bower_components/iron-flex-layout/iron-flex-layout-classes.html" />-->
+<dom-module id="contact-list-item">
+	<template>
+		
+		<style include="shared-styles">
+			:host {
+      	display: block;
+      }
+
+			.flex-horizontal {
+				@apply(--layout-horizontal);
+			}
+
+			.flexchild {
+				@apply(--layout-flex);
+			}
+
+    </style>
+		<div class="cards flex-horizontal">
+			<contact-circle></contact-circle>
+			<div class="flexchild">
+				<span>Ali Ramezani</span>
+				<span>+989152502743</span>
+			</div>
+			<div>
+				<paper-icon-button icon="more-vert" drawer-toggle></paper-icon-button>
+			</div>
+		</div>
+
+  </template>
+    
+  <script>
+		Polymer ({
+			is: 'contact-list-item'
+		});
+	</script>
+</dom-module>
