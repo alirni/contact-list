@@ -40,14 +40,20 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
         color: #fff;
         background-color: var(--app-primary-color);
       }
-      app-header paper-icon-button {
+      /*app-header paper-icon-button {
         --paper-icon-button-ink-color: white;
-      }
+      }*/
 
       paper-tabs {
         --paper-tabs: {
           background-color: #0091EA;
          };
+      }
+
+      paper-icon-button {
+        --paper-icon-button: {
+          color: white;
+        }
       }
 
     </style>
@@ -70,9 +76,9 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 
       <!--tabs section-->
       <paper-tabs selected="0">
-        <paper-tab>tab 1</paper-tab>
-        <paper-tab>tab 2</paper-tab>
-        <paper-tab>tab 3</paper-tab>
+        <paper-tab><paper-icon-button icon="people" drawer-toggle></paper-icon-button></paper-tab>
+        <paper-tab><paper-icon-button icon="person" drawer-toggle></paper-icon-button></paper-tab>
+        <paper-tab><paper-icon-button icon="star" drawer-toggle></paper-icon-button></paper-tab>
       </paper-tabs>
       <!--END tabs section-->
 
