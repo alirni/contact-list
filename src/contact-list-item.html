@@ -4,8 +4,7 @@
 <link rel="import" href="../bower_components/paper-icon-button/paper-icon-button.html" />
 <link rel="import" href="contact-circle.html" />
 <link rel="import" href="../bower_components/iron-flex-layout/iron-flex-layout.html" />
-<link rel="import" href="../bower_components/iron-flex-layout/iron-flex-layout-classes.html" />
-
+<!--<link rel="import" href="../bower_components/iron-flex-layout/iron-flex-layout-classes.html" />-->
 <dom-module id="contact-list-item">
 	<template>
 		
@@ -23,10 +22,12 @@
 			}
 
     </style>
-		<div class="cards container flex-horizontal">
+		<div class="cards flex-horizontal">
 			<contact-circle></contact-circle>
 			<span class="flexchild">Ali Ramezani</span>
-			<paper-icon-button icon="more-vert" drawer-toggle></paper-icon-button>
+			<div>
+				<paper-icon-button icon="more-vert" drawer-toggle></paper-icon-button>
+			</div>
 		</div>
 
   </template>
