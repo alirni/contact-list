@@ -25,11 +25,12 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 <link rel="import" href="../bower_components/paper-tabs/paper-tabs.html" />
 <link rel="import" href="../bower_components/paper-fab/paper-fab.html" />
 <link rel="import" href="shared-styles.html" />
+<link rel="import" href="contact-list.html" />
 
 
 <dom-module id="my-app">
   <template>
-    <style include="shared-styles">
+    <style>
       :host {
         --app-primary-color: #0091EA;
         --app-secondary-color: black;
@@ -67,144 +68,38 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
       <!-- Main content -->
       <!--<app-header-layout has-scrolling-region>-->
 
-        <app-header condenses reveals effects="waterfall">
-          <app-toolbar>
-            <paper-icon-button icon="account-circle" drawer-toggle></paper-icon-button>
-            <div main-title>Contacts</div>
-          </app-toolbar>
+      <app-header condenses reveals effects="waterfall">
+        <app-toolbar>
+          <paper-icon-button icon="account-circle" drawer-toggle></paper-icon-button>
+          <div main-title>Contacts</div>
+        </app-toolbar>
 
-          <!--tabs section-->
-          <paper-tabs selected="0">
-            <paper-tab link>
-              <!--<a href="#link1" tabindex="1">-->
-                <paper-icon-button icon="person" drawer-toggle></paper-icon-button>
-              <!--</a>-->
-            </paper-tab>
-            <paper-tab link>
-              <!--<a href="#link2" tabindex="-1">-->
-                <paper-icon-button icon="star" drawer-toggle></paper-icon-button>
-              <!--</a>-->
-            </paper-tab>
-            <paper-tab link>
-              <!--<a href="#link3" tabindex="-1">-->
-                <paper-icon-button icon="people" drawer-toggle></paper-icon-button>
-              <!--</a>-->
-            </paper-tab>
-          </paper-tabs>
-          <!--END tabs section-->
+        <!--tabs section-->
+        <paper-tabs selected="0">
+          <paper-tab link>
+            <!--<a href="#link1" tabindex="1">-->
+              <paper-icon-button icon="person" drawer-toggle></paper-icon-button>
+            <!--</a>-->
+          </paper-tab>
+          <paper-tab link>
+            <!--<a href="#link2" tabindex="-1">-->
+              <paper-icon-button icon="star" drawer-toggle></paper-icon-button>
+            <!--</a>-->
+          </paper-tab>
+          <paper-tab link>
+            <!--<a href="#link3" tabindex="-1">-->
+              <paper-icon-button icon="people" drawer-toggle></paper-icon-button>
+            <!--</a>-->
+          </paper-tab>
+        </paper-tabs>
+        <!--END tabs section-->
 
-        </app-header>
+      </app-header>
       <!--</app-header-layout>-->
+      <contact-list></contact-list>
+      <paper-fab icon="add"></paper-fab>      
 
-      <div class="card">
-        <div class="cards">
-          Lorem ipsum dolor sit amet.
-        </div>
-        <div class="cards">
-          Lorem ipsum dolor sit amet.
-        </div>
-        <div class="cards">
-          Lorem ipsum dolor sit amet.
-        </div>
-        <div class="cards">
-          Lorem ipsum dolor sit amet.
-        </div>
-        <div class="cards">
-          Lorem ipsum dolor sit amet.
-        </div>
-        <div class="cards">
-          Lorem ipsum dolor sit amet.
-        </div>
-        <div class="cards">
-          Lorem ipsum dolor sit amet.
-        </div>
-        <div class="cards">
-          Lorem ipsum dolor sit amet.
-        </div>
-        <div class="cards">
-          Lorem ipsum dolor sit amet.
-        </div>
-        <div class="cards">
-          Lorem ipsum dolor sit amet.
-        </div>
-        <div class="cards">
-          Lorem ipsum dolor sit amet.
-        </div>
-        <div class="cards">
-          Lorem ipsum dolor sit amet.
-        </div>
-        <div class="cards">
-          Lorem ipsum dolor sit amet.
-        </div>
-        <div class="cards">
-          Lorem ipsum dolor sit amet.
-        </div>
-        <div class="cards">
-          Lorem ipsum dolor sit amet.
-        </div>
-        <div class="cards">
-          Lorem ipsum dolor sit amet.
-        </div>
-        <div class="cards">
-          Lorem ipsum dolor sit amet.
-        </div>
-        <div class="cards">
-          Lorem ipsum dolor sit amet.
-        </div>
-        <div class="cards">
-          Lorem ipsum dolor sit amet.
-        </div>
-        <div class="cards">
-          Lorem ipsum dolor sit amet.
-        </div>
-        <div class="cards">
-          Lorem ipsum dolor sit amet.
-        </div>
-        <div class="cards">
-          Lorem ipsum dolor sit amet.
-        </div>
-        <div class="cards">
-          Lorem ipsum dolor sit amet.
-        </div>
-        <div class="cards">
-          Lorem ipsum dolor sit amet.
-        </div>
-        <div class="cards">
-          Lorem ipsum dolor sit amet.
-        </div>
-        <div class="cards">
-          Lorem ipsum dolor sit amet.
-        </div>
-        <div class="cards">
-          Lorem ipsum dolor sit amet.
-        </div>
-        <div class="cards">
-          Lorem ipsum dolor sit amet.
-        </div>
-        <div class="cards">
-          Lorem ipsum dolor sit amet.
-        </div>
-        <div class="cards">
-          Lorem ipsum dolor sit amet.
-        </div>
-        <div class="cards">
-          Lorem ipsum dolor sit amet.
-        </div>
-        <div class="cards">
-          Lorem ipsum dolor sit amet.
-        </div>
-        <div class="cards">
-          Lorem ipsum dolor sit amet.
-        </div>
-        <div class="cards">
-          Lorem ipsum dolor sit amet.
-        </div>
-      </div>
-    
     </app-drawer-layout>
-    <paper-fab icon="add"></paper-fab>
-
-    
   </template>
 
   <script>
