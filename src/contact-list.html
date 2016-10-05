@@ -1,224 +1,189 @@
+<link rel="import" href="../bower_components/polymer/polymer.html" />
+<link rel="import" href="../bower_components/iron-flex-layout/iron-flex-layout.html" />
+<link rel="import" href="../bower_components/iron-ajax/iron-ajax.html" />
+<link rel="import" href="../bower_components/paper-icon-button/paper-icon-button.html" />
+<link rel="import" href="../bower_components/iron-icon/iron-icon.html" />
+<link rel="import" href="../bower_components/paper-styles/color.html" />
+<link rel="import" href="../bower_components/paper-styles/typography.html" />
+<link rel="import" href="../bower_components/paper-item/paper-item.html" />
+<link rel="import" href="../bower_components/paper-badge/paper-badge.html" />
+<link rel="import" href="../bower_components/iron-list/iron-list.html" />
 <link rel="import" href="shared-styles.html" />
-<link rel="import" href="../bower_components/polymer/polymer.html">
-<link rel="import" href="../bower_components/app-layout/app-drawer/app-drawer.html">
-<link rel="import" href="../bower_components/app-layout/app-drawer-layout/app-drawer-layout.html">
-<link rel="import" href="../bower_components/app-layout/app-toolbar/app-toolbar.html">
-<link rel="import" href="../bower_components/iron-flex-layout/iron-flex-layout.html">
-<link rel="import" href="../bower_components/iron-ajax/iron-ajax.html">
-<link rel="import" href="../bower_components/paper-icon-button/paper-icon-button.html">
-<link rel="import" href="../bower_components/iron-icon/iron-icon.html">
-<link rel="import" href="../bower_components/paper-styles/color.html">
-<link rel="import" href="../bower_components/paper-styles/typography.html">
-<link rel="import" href="../bower_components/paper-item/paper-item.html">
-<link rel="import" href="../bower_components/paper-badge/paper-badge.html">
-<link rel="import" href="../bower_components/iron-list/iron-list.html">
 
 <dom-module id="contact-list">
-    <template>
-      <style>
+  <template>
+    <style>
 
-        :host {
-          display: block;
-          @apply(--paper-font-common-base);
-          font-family: sans-serif;
-        }
+      :host {
+        display: block;
+        @apply(--paper-font-common-base);
+        font-family: sans-serif;
+      }
 
-        .content {
-          @apply(--layout-vertical);
-          height: 100%;
-        }
+      .content {
+        @apply(--layout-vertical);
+        height: 100%;
+      }
 
-        .white-toolbar {
-          background: white;
-          color: #333;
-        }
+      app-toolbar paper-icon-button {
+        --paper-icon-button-ink-color: white;
+      }
 
-        .pink-toolbar {
-          background: var(--paper-pink-500);
-          color: white;
-        }
+      paper-badge {
+        margin-top: 5px;
+      }
 
-        app-toolbar {
-          box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.3);
-          --paper-toolbar-title: {
-            font-size: 16px;
-            line-height: 16px;
-            font-weight: bold;
-            margin-left: 0;
-          };
-        }
+      paper-badge[label="0"] {
+        opacity: 0;
+      }
 
-        app-drawer {
-          text-align: left;
-          border-left: 1px solid #ccc;
-        }
-
-        app-toolbar paper-icon-button {
-          --paper-icon-button-ink-color: white;
-        }
+      @media (min-width: 640px) {
 
         paper-badge {
-          margin-top: 5px;
+          display: none;
         }
 
-        paper-badge[label="0"] {
-          opacity: 0;
-        }
+      }
 
-        @media (min-width: 640px) {
+      #itemsList,
+      #selectedItemsList {
+        @apply(--layout-flex);
+      }
 
-          paper-badge {
-            display: none;
-          }
+      .item {
+        @apply(--layout-horizontal);
+        cursor: pointer;
+        padding: 16px 22px;
+        border-bottom: 1px solid #DDD;
+      }
 
-        }
+      .item:focus,
+      .item.selected:focus {
+        outline: 0;
+        background-color: #ddd;
+      }
 
-        #itemsList,
-        #selectedItemsList {
-          @apply(--layout-flex);
-        }
+      .item.selected .star {
+        color: var(--paper-blue-600);
+      }
 
-        .item {
-          @apply(--layout-horizontal);
-          cursor: pointer;
-          padding: 16px 22px;
-          border-bottom: 1px solid #DDD;
-        }
+      .avatar {
+        height: 40px;
+        width: 40px;
+        border-radius: 20px;
+        box-sizing: border-box;
+        background-color: #ddd;
+      }
 
-        .item:focus,
-        .item.selected:focus {
-          outline: 0;
-          background-color: #ddd;
-        }
+      .pad {
+        @apply(--layout-flex);
+        @apply(--layout-vertical);
+        padding: 0 16px;
+      }
 
-        .item.selected .star {
-          color: var(--paper-blue-600);
-        }
+      .primary {
+        font-size: 16px;
+      }
 
-        .avatar {
-          height: 40px;
-          width: 40px;
-          border-radius: 20px;
-          box-sizing: border-box;
-          background-color: #ddd;
-        }
+      .secondary {
+        font-size: 14px;
+      }
 
-        .pad {
-          @apply(--layout-flex);
-          @apply(--layout-vertical);
-          padding: 0 16px;
-        }
+      .dim {
+        color: gray;
+      }
 
-        .primary {
-          font-size: 16px;
-        }
+      .star {
+        width: 24px;
+        height: 24px;
+      }
 
-        .secondary {
-          font-size: 14px;
-        }
+      paper-item {
+        white-space: nowrap;
+        cursor: pointer;
+        position: relative;
+      }
 
-        .dim {
-          color: gray;
-        }
+      paper-item:hover::after {
+        content: "－";
+        width: 16px;
+        height: 16px;
+        display: block;
+        border-radius: 50% 50%;
+        background-color: var(--google-red-300);
+        margin-left: 10px;
+        line-height: 16px;
+        text-align: center;
+        color: white;
+        font-weight: bold;
+        text-decoration: none;
+        position: absolute;
+        right: 15px;
+        top: calc(50% - 8px);
+      }
 
-        .star {
-          width: 24px;
-          height: 24px;
-        }
+      .no-selection {
+        color: #999;
+        margin-left: 10px;
+        line-height: 50px;
+      }
 
-        paper-item {
-          white-space: nowrap;
-          cursor: pointer;
-          position: relative;
-        }
+      iron-list {
+        @apply(--layout-flex);
+      }
 
-        paper-item:hover::after {
-          content: "－";
-          width: 16px;
-          height: 16px;
-          display: block;
-          border-radius: 50% 50%;
-          background-color: var(--google-red-300);
-          margin-left: 10px;
-          line-height: 16px;
-          text-align: center;
-          color: white;
-          font-weight: bold;
-          text-decoration: none;
-          position: absolute;
-          right: 15px;
-          top: calc(50% - 8px);
-        }
-
-        .no-selection {
-          color: #999;
-          margin-left: 10px;
-          line-height: 50px;
-        }
-
-        iron-list {
-          @apply(--layout-flex);
-        }
-
-      </style>
-
-      <iron-ajax url="data/contacts.json" last-response="{{data}}" auto></iron-ajax>
-      
-      <app-drawer-layout fullbleed>
-        <div class="content">
-          <!-- Main List for the items -->
-          <iron-list id="itemsList" items="[[data]]" selected-items="{{selectedItems}}" selection-enabled multi-selection>
-            <template>
-              <div>
-                <div tabindex$="[[tabIndex]]" aria-label$="Select/Deselect [[item.name]]" class$="[[_computedClass(selected)]]">
-                  <img class="avatar" src="[[item.image]]">
-                  <div class="pad">
-                    <div class="primary">
-                      [[item.name]]
-                    </div>
-                    <div class="secondary dim">[[item.shortText]]</div>
-                  </div>
-                  <iron-icon icon$="[[iconForItem(selected)]]" class="star"></iron-icon>
-                </div>
-                <div class="border"></div>
+    </style>
+    <iron-ajax url="data/contacts.json" last-response="{{data}}" auto></iron-ajax>
+    <!-- Main List for the items -->
+    <iron-list id="itemsList" items="[[data]]" selected-items="{{selectedItems}}" selection-enabled multi-selection>
+      <template>
+        <div>
+          <div tabindex$="[[tabIndex]]" aria-label$="Select/Deselect [[item.name]]" class$="[[_computedClass(selected)]]">
+            <img class="avatar" src="[[item.image]]">
+            <div class="pad">
+              <div class="primary">
+                [[item.name]]
               </div>
-            </template>
-          </iron-list>
+              <div class="secondary dim">[[item.shortText]]</div>
+            </div>
+            <iron-icon icon$="[[iconForItem(selected)]]" class="star"></iron-icon>
+          </div>
+          <div class="border"></div>
         </div>
-      </app-drawer-layout>
+      </template>
+    </iron-list>
+  </template>
 
-    </template>
+  <script>
+    Polymer({
 
-    <script>
-        Polymer({
+      is: 'contact-list',
 
-          is: 'contact-list',
+      properties: {
+        selectedItems: {
+          type: Object
+        }
+      },
 
-          properties: {
-            selectedItems: {
-              type: Object
-            }
-          },
+      iconForItem: function(isSelected) {
+        return isSelected ? 'star' : 'star-border';
+      },
 
-          iconForItem: function(isSelected) {
-            return isSelected ? 'star' : 'star-border';
-          },
+      _computedClass: function(isSelected) {
+        var classes = 'item';
+        if (isSelected) {
+          classes += ' selected';
+        }
+        return classes;
+      },
 
-          _computedClass: function(isSelected) {
-            var classes = 'item';
-            if (isSelected) {
-              classes += ' selected';
-            }
-            return classes;
-          },
+      _unselect: function(e) {
+        this.$.itemsList.deselectItem(e.model.item);
+      },
 
-          _unselect: function(e) {
-            this.$.itemsList.deselectItem(e.model.item);
-          },
-
-          _getFormattedCount: function(count) {
-            return count > 0 ? '(' + count + ')' : '';
-          }
-        });
-    </script>
-  </dom-module>
+      _getFormattedCount: function(count) {
+        return count > 0 ? '(' + count + ')' : '';
+      }
+    });
+  </script>
+</dom-module>
