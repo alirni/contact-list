@@ -77,15 +77,26 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 
       <!--tabs section-->
       <paper-tabs selected="0">
-        <paper-tab><paper-icon-button icon="people" drawer-toggle></paper-icon-button></paper-tab>
-        <paper-tab><paper-icon-button icon="person" drawer-toggle></paper-icon-button></paper-tab>
-        <paper-tab><paper-icon-button icon="star" drawer-toggle></paper-icon-button></paper-tab>
+          <paper-tab link>
+            <!--<a href="#link1" tabindex="1">-->
+              <paper-icon-button icon="person" drawer-toggle></paper-icon-button>
+            <!--</a>-->
+          </paper-tab>
+          <paper-tab link>
+            <!--<a href="#link2" tabindex="-1">-->
+              <paper-icon-button icon="star" drawer-toggle></paper-icon-button>
+            <!--</a>-->
+          </paper-tab>
+          <paper-tab link>
+            <!--<a href="#link3" tabindex="-1">-->
+              <paper-icon-button icon="people" drawer-toggle></paper-icon-button>
+            <!--</a>-->
+          </paper-tab>
       </paper-tabs>
       <!--END tabs section-->
-
-
+    
     </app-drawer-layout>
-    <paper-fab icon="add"></paper-fab>
+    <!--<paper-fab icon="add"></paper-fab>-->
   </template>
 
   <script>
