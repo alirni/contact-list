@@ -19,8 +19,9 @@
       }
 
       .content {
-        @apply(--layout-vertical);
-        height: 100%;
+        /*@apply(--layout-vertical);*/
+        /*height: 100%;*/
+        padding-bottom: 30px;
       }
 
       #itemsList,
@@ -91,24 +92,25 @@
     <iron-ajax url="data/contacts.json" last-response="{{data}}" auto></iron-ajax>
     
     <!-- Main List for the items -->
-    
-    <iron-list id="itemsList" items="[[data]]" selected-items="{{selectedItems}}" selection-enabled multi-selection>
-      <template>
-        <div>
-          <div tabindex$="[[tabIndex]]" aria-label$="Select/Deselect [[item.name]]" class$="[[_computedClass(selected)]]">
-            <img class="avatar" src="[[item.image]]">
-            <div class="pad">
-              <div class="primary">
-                [[item.name]]
+    <div class="content">
+      <iron-list id="itemsList" items="[[data]]" selected-items="{{selectedItems}}" selection-enabled multi-selection>
+        <template>
+          <div>
+            <div tabindex$="[[tabIndex]]" aria-label$="Select/Deselect [[item.name]]" class$="[[_computedClass(selected)]]">
+              <img class="avatar" src="[[item.image]]">
+              <div class="pad">
+                <div class="primary">
+                  [[item.name]]
+                </div>
+                <div class="secondary dim">[[item.shortText]]</div>
               </div>
-              <div class="secondary dim">[[item.shortText]]</div>
+              <iron-icon icon="more-vert" drawer-toggle></iron-icon>
             </div>
-            <iron-icon icon$="[[iconForItem(selected)]]" class="star"></iron-icon>
+            <div class="border"></div>
           </div>
-          <div class="border"></div>
-        </div>
-      </template>
-    </iron-list>
+        </template>
+      </iron-list>
+    </div>
   </template>
 
   <script>
@@ -122,9 +124,9 @@
         }
       },
 
-      iconForItem: function(isSelected) {
-        return isSelected ? 'star' : 'star-border';
-      },
+      // iconForItem: function(isSelected) {
+      //   return isSelected ? 'more-vert' : 'more-vert';
+      // },
 
       _computedClass: function(isSelected) {
         var classes = 'item';
