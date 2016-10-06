@@ -43,48 +43,17 @@
 
     <div class="cards flex-horizontal">
       <contact-circle></contact-circle>
-      <a class="flexchild" name="contact-detalis" href="/contact-detalis">
+      <a class="flexchild" name="contact-detalis" href="/contact-detalis" tabindex="2">
         <contact-name></contact-name>
       </a>
       <more-vert-menu></more-vert-menu>
     </div>
 
-    <iron-pages
-        selected="[[page]]"
-        attr-for-selected="name"
-        role="main">
-      <contact-detalis name="contact-detalis"></contact-detalis>
-    </iron-pages>
-
   </template>
     
   <script>
 		Polymer ({
-			is: 'contact-list-item',
-
-      properties: {
-        mypage: {
-          type: String,
-          reflectToAttribute: true,
-          observer: '_pageChanged'
-        }
-      },
-
-      observers: [
-        '_routePageChanged(routeData.page)'
-      ],
-
-      _routePageChanged: function(page) {
-        this.page = page || 'contact-detalis';
-      },
-
-      _pageChanged: function(page) {
-        // Load page import on demand. Show 404 page if fails
-        var resolvedPageUrl = this.resolveUrl(page + '.html');
-        this.importHref(resolvedPageUrl, null, this._showPage404, true);
-      }
-
-
+			is: 'contact-list-item'
 		});
 	</script>
 </dom-module>
