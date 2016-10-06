@@ -40,19 +40,36 @@
 			}
 
     </style>
-	<div class="cards flex-horizontal">
-	  <contact-circle></contact-circle>
-	  <contact-name class="flexchild" on-tap="opendialog"></contact-name>
-	  <more-vert-menu></more-vert-menu>
-	</div>
+
+    <app-location route="{{route}}"></app-location>
+    <app-route
+        route="{{route}}"
+        pattern="/:page"
+        data="{{routeData}}"
+        tail="{{subroute}}"></app-route>
+
+    <div class="cards flex-horizontal">
+      <contact-circle></contact-circle>
+      <a class="flexchild" name="contact-detalis" href="/contact-detalis" tabindex="1">
+        <contact-name></contact-name>
+      </a>
+      <more-vert-menu></more-vert-menu>
+    </div>
 
 
-  <paper-dialog id="dialog">
+  <!--<paper-dialog id="dialog">
     <paper-dialog-scrollable>
       <contact-detalis></contact-detalis>
     </paper-dialog-scrollable>
-  </paper-dialog>
+  </paper-dialog>-->
 
+  <iron-pages
+      selected="[[page]]"
+      attr-for-selected="name"
+      fallback-selection="view404"
+      role="main">
+    <contact-detalis name="contact-view"></contact-detalis>
+  </iron-pages>
 
   </template>
     
@@ -60,9 +77,29 @@
 		Polymer ({
 			is: 'contact-list-item',
 
-      opendialog: function() {
-				this.$.dialog.open()
-			}
+      properties: {
+        page: {
+          type: String,
+          reflectToAttribute: true,
+          observer: '_pageChanged'
+        }
+      },
+
+      observers: [
+        '_routePageChanged(routeData.page)'
+      ],
+
+      _routePageChanged: function(page) {
+        this.page = page || 'contact-view';
+      },
+
+      _pageChanged: function(page) {
+        // Load page import on demand. Show 404 page if fails
+        var resolvedPageUrl = this.resolveUrl(page + '.html');
+        this.importHref(resolvedPageUrl, null, this._showPage404, true);
+      },
+
+
 		});
 	</script>
 </dom-module>
