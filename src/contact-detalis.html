@@ -28,6 +28,9 @@
 
       .flex-horizontal {
 				@apply(--layout-horizontal);
+        margin-bottom: 20px;
+
+        border-bottom: solid 1px;
 			}
 
 			.flexchild {
@@ -36,11 +39,16 @@
 
       .name {
 				@apply(--paper-font-caption);
+        margin: 0;
 			}
 
       .flex-equal-justified {
         @apply(--layout-horizontal);
         @apply(--layout-justified);
+      }
+
+      .flex-reversed {
+        @apply(--layout-horizontal-reverse);
       }
 
       .margin-righ {
@@ -49,24 +57,54 @@
         }
       }
 
+      .flex-vertical {
+        @apply(--layout-vertical);
+        height: 100px;
+      }
+      .flexchild-vertical {
+        @apply(--layout-flex);
+      }
+
+      .part {
+        margin-bottom: 10px;
+      }
+
     </style>
     
     <paper-card heading="ali ramezani" image="../images/manifest/icon-512x512.png">
-      <div class="card-actions flex-equal-justified">
-        <paper-button>Edite</paper-button>
-        <paper-button>Add to group</paper-button>
+      <div class="card-actions flex-reversed">
+        <paper-icon-button icon="create" drawer-toggle></paper-icon-button>
+        <paper-icon-button icon="people" drawer-toggle></paper-icon-button>        
         <paper-icon-button on-tap="changeIcon" icon="[[myicon]]" drawer-toggle></paper-icon-button>
       </div>
       <div class="mycard">
         <div class="flex-horizontal">
           <paper-icon-button class="margin-righ" icon="phone" drawer-toggle></paper-icon-button>          
-          <div class="flexchild">
-            <span class="mobile">+989152502743</span><br/>
-            <span class="name">mobil</span>
+          <div class="flex-vertical">         
+            <div class="part">
+              <span class="mobile">+989152502743</span><br/>
+              <span class="name">mobil</span>
+            </div>
+            <div class="part">
+              <span class="mobile">05138831045</span><br/>
+              <span class="name">home</span>
+            </div>
           </div>
           <!--<paper-icon-button icon="sms" drawer-toggle></paper-icon-button>-->
         </div>
-        <paper-icon-button icon="mail" drawer-toggle></paper-icon-button>
+        <div class="flex-horizontal">
+          <paper-icon-button class="margin-righ" icon="mail" drawer-toggle></paper-icon-button> 
+          <div class="flex-vertical">         
+            <div class="part">
+              <span class="mobile">aliramezan191@gmail.com</span><br/>
+              <span class="name">personal</span>
+            </div>
+            <div class="part">
+              <span class="mobile">ali@ramezany.com</span><br/>
+              <span class="name">work</span>
+            </div>
+          </div>
+        </div>
       </div>
       <div class="mycard">
       </div>
