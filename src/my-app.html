@@ -25,7 +25,6 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 <link rel="import" href="../bower_components/paper-tabs/paper-tabs.html" />
 <link rel="import" href="../bower_components/paper-fab/paper-fab.html" />
 <link rel="import" href="shared-styles.html" />
-<link rel="import" href="contact-list.html" />
 
 
 <dom-module id="my-app">
@@ -90,18 +89,18 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
         <!--tabs section-->
         <paper-tabs selected="0">
           <paper-tab link>
-            <a name="view1" href="/view1" tabindex="1">
-              <!--<paper-icon-button icon="person" drawer-toggle></paper-icon-button>-->
+            <a name="contact-view" href="/contact-view" tabindex="1">
+              <paper-icon-button icon="person" drawer-toggle></paper-icon-button>
             </a>
           </paper-tab>
           <paper-tab link>
-            <a  name="view2" href="/view2" tabindex="-1">
-              <!--<paper-icon-button icon="star" drawer-toggle></paper-icon-button>-->
+            <a  name="fav-view" href="/fav-view" tabindex="-1">
+              <paper-icon-button icon="star" drawer-toggle></paper-icon-button>
             </a>
           </paper-tab>
           <paper-tab link>
-            <a name="view3" href="/view3" tabindex="-1">
-              <!--<paper-icon-button icon="people" drawer-toggle></paper-icon-button>-->
+            <a name="group-view" href="/group-view" tabindex="-1">
+              <paper-icon-button icon="people" drawer-toggle></paper-icon-button>
             </a>
           </paper-tab>
         </paper-tabs>
@@ -109,15 +108,14 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 
       </app-header>
       <!--</app-header-layout>-->
-      <!--<contact-list></contact-list>-->
       <iron-pages
           selected="[[page]]"
           attr-for-selected="name"
           fallback-selection="view404"
           role="main">
-        <my-view1 name="view1"></my-view1>
-        <my-view2 name="view2"></my-view2>
-        <my-view3 name="view3"></my-view3>
+        <contact-view name="contact-view"></contact-view>
+        <fav-view name="fav-view"></fav-view>
+        <group-view name="group-view"></group-view>
       </iron-pages>
       <paper-fab icon="create"></paper-fab>      
 
@@ -146,7 +144,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 
       _pageChanged: function(page) {
         // Load page import on demand. Show 404 page if fails
-        var resolvedPageUrl = this.resolveUrl('my-' + page + '.html');
+        var resolvedPageUrl = this.resolveUrl( page + '.html');
         this.importHref(resolvedPageUrl, null, this._showPage404, true);
       },
 
