@@ -1,22 +1,37 @@
 <link rel="import" href="../bower_components/polymer/polymer.html" />
 <link rel="import" href="../bower_components/paper-card/paper-card.html" />
+<link rel="import" href="shared-styles.html" />
+<link rel="import" href="my-icons.html" />
+<link rel="import" href="../bower_components/paper-icon-button/paper-icon-button.html" />
 
 <dom-module id="contact-detalis">
 	<template>
 		
-		<style>
+		<style include="shared-styles">
 			:host {
       	display: block;
       }
 
+      paper-card {
+        --paper-card-background-color: #eeeeee;
+        --paper-card-header-text: {
+          text-transform: capitalize;          
+        };
+      }
+
+      paper-icon-button {
+       --paper-icon-button:{
+         color: #212121;
+       };
+      }
 
     </style>
     
-    <paper-card image="../images/manifest/icon-512x512.png">
-      <div class="card-content">
-        <paper-card>
-          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dignissimos aperiam tempore quasi, itaque animi odit dolorem qui corporis repellat dicta esse porro voluptates perspiciatis culpa obcaecati. Alias earum, consectetur neque.</p>
-        </paper-card>
+    <paper-card heading="ali ramezani" image="../images/manifest/icon-512x512.png">
+      <div class="mycard">
+        <paper-icon-button on-tap="changeIcon" icon="[[myicon]]" drawer-toggle></paper-icon-button>
+      </div>
+      <div class="mycard">
       </div>
     </paper-card>
 			
@@ -24,7 +39,23 @@
     
   <script>
 		Polymer ({
-			is: 'contact-detalis'
+			is: 'contact-detalis',
+
+      properties: {
+        myicon: {
+          type: String,
+          value: 'star-border'
+        }
+      },
+
+      changeIcon: function() {
+        if (this.myicon !== 'star') {
+          this.myicon = 'star';
+        }
+        else {
+          this.myicon = 'star-border';
+        }
+      },
 		});
 	</script>
 </dom-module>
