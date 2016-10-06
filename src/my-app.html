@@ -66,6 +66,13 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 
     </style>
 
+    <app-location route="{{route}}"></app-location>
+    <app-route
+        route="{{route}}"
+        pattern="/:page"
+        data="{{routeData}}"
+        tail="{{subroute}}"></app-route>
+
     <app-drawer-layout fullbleed>
       <!-- Drawer content -->
       <app-drawer>
@@ -83,26 +90,35 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
         <!--tabs section-->
         <paper-tabs selected="0">
           <paper-tab link>
-            <!--<a href="#link1" tabindex="1">-->
-              <paper-icon-button icon="person" drawer-toggle></paper-icon-button>
-            <!--</a>-->
+            <a name="view1" href="/view1" tabindex="1">
+              <!--<paper-icon-button icon="person" drawer-toggle></paper-icon-button>-->
+            </a>
           </paper-tab>
           <paper-tab link>
-            <!--<a href="#link2" tabindex="-1">-->
-              <paper-icon-button icon="star" drawer-toggle></paper-icon-button>
-            <!--</a>-->
+            <a  name="view2" href="/view2" tabindex="-1">
+              <!--<paper-icon-button icon="star" drawer-toggle></paper-icon-button>-->
+            </a>
           </paper-tab>
           <paper-tab link>
-            <!--<a href="#link3" tabindex="-1">-->
-              <paper-icon-button icon="people" drawer-toggle></paper-icon-button>
-            <!--</a>-->
+            <a name="view3" href="/view3" tabindex="-1">
+              <!--<paper-icon-button icon="people" drawer-toggle></paper-icon-button>-->
+            </a>
           </paper-tab>
         </paper-tabs>
         <!--END tabs section-->
 
       </app-header>
       <!--</app-header-layout>-->
-      <contact-list></contact-list>
+      <!--<contact-list></contact-list>-->
+      <iron-pages
+          selected="[[page]]"
+          attr-for-selected="name"
+          fallback-selection="view404"
+          role="main">
+        <my-view1 name="view1"></my-view1>
+        <my-view2 name="view2"></my-view2>
+        <my-view3 name="view3"></my-view3>
+      </iron-pages>
       <paper-fab icon="create"></paper-fab>      
 
     </app-drawer-layout>
