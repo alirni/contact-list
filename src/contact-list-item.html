@@ -1,10 +1,16 @@
 <link rel="import" href="../bower_components/polymer/polymer.html" />
-<link rel="import" href="my-icons.html">
+<link rel="import" href="my-icons.html" />
 <link rel="import" href="shared-styles.html" />
 <link rel="import" href="../bower_components/paper-icon-button/paper-icon-button.html" />
 <link rel="import" href="contact-circle.html" />
 <link rel="import" href="../bower_components/iron-flex-layout/iron-flex-layout.html" />
 <link rel="import" href="../bower_components/paper-styles/typography.html" />
+<link rel="import" href="../bower_components/paper-menu/paper-menu.html" />
+<link rel="import" href="../bower_components/paper-menu-button/paper-menu-button.html" />
+<link rel="import" href="../bower_components/paper-item/paper-item.html" />
+<link rel="import" href="more-vert-menu.html" />
+
+
 <dom-module id="contact-list-item">
 	<template>
 		
@@ -36,9 +42,7 @@
 				<span class="name">ali ramezani</span><br/>
 				<span class="mobile">+989152502743</span>
 			</div>
-			<div>
-				<paper-icon-button icon="more-vert" drawer-toggle></paper-icon-button>
-			</div>
+			<more-vert-menu></more-vert-menu>
 		</div>
 
   </template>
