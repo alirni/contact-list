@@ -28,9 +28,7 @@
 
       .flex-horizontal {
 				@apply(--layout-horizontal);
-        margin-bottom: 20px;
-
-        border-bottom: solid 1px;
+        margin-bottom: 30px;
 			}
 
 			.flexchild {
@@ -69,23 +67,29 @@
         margin-bottom: 10px;
       }
 
+      .end {
+        /*margin-top: 10px;*/
+        border-bottom: 1px solid #EEEEEE;
+        padding-bottom: 10px;
+      }
+
     </style>
     
     <paper-card heading="ali ramezani" image="../images/manifest/icon-512x512.png">
       <div class="card-actions flex-reversed">
         <paper-icon-button icon="create" drawer-toggle></paper-icon-button>
-        <paper-icon-button icon="people" drawer-toggle></paper-icon-button>        
-        <paper-icon-button on-tap="changeIcon" icon="[[myicon]]" drawer-toggle></paper-icon-button>
+        <paper-icon-button on-tap="changeIconG" icon="[[iconGroup]]" drawer-toggle></paper-icon-button>        
+        <paper-icon-button on-tap="changeIconS" icon="[[iconStar]]" drawer-toggle></paper-icon-button>
       </div>
       <div class="mycard">
         <div class="flex-horizontal">
           <paper-icon-button class="margin-righ" icon="phone" drawer-toggle></paper-icon-button>          
-          <div class="flex-vertical">         
+          <div class="flex-vertical flexchild">         
             <div class="part">
               <span class="mobile">+989152502743</span><br/>
               <span class="name">mobil</span>
             </div>
-            <div class="part">
+            <div class="part end">
               <span class="mobile">05138831045</span><br/>
               <span class="name">home</span>
             </div>
@@ -94,19 +98,17 @@
         </div>
         <div class="flex-horizontal">
           <paper-icon-button class="margin-righ" icon="mail" drawer-toggle></paper-icon-button> 
-          <div class="flex-vertical">         
+          <div class="flex-vertical flexchild">         
             <div class="part">
               <span class="mobile">aliramezan191@gmail.com</span><br/>
               <span class="name">personal</span>
             </div>
-            <div class="part">
+            <div class="part end">
               <span class="mobile">ali@ramezany.com</span><br/>
               <span class="name">work</span>
             </div>
           </div>
         </div>
-      </div>
-      <div class="mycard">
       </div>
     </paper-card>
 			
@@ -117,20 +119,33 @@
 			is: 'contact-detalis',
 
       properties: {
-        myicon: {
+        iconStar: {
           type: String,
           value: 'star-border'
+        },
+        iconGroup: {
+          type: String,
+          value: 'people-outline'
         }
       },
 
-      changeIcon: function() {
-        if (this.myicon !== 'star') {
-          this.myicon = 'star';
+      changeIconS: function() {
+        if (this.iconStar !== 'star') {
+          this.iconStar = 'star';
         }
         else {
-          this.myicon = 'star-border';
+          this.iconStar = 'star-border';
         }
       },
+
+      changeIconG: function() {
+        if (this.iconGroup !== 'people') {
+          this.iconGroup = 'people';
+        }
+        else {
+          this.iconGroup = 'people-outline';
+        }
+      }
 		});
 	</script>
 </dom-module>
