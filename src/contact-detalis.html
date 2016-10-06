@@ -1,4 +1,5 @@
 <link rel="import" href="../bower_components/polymer/polymer.html" />
+<link rel="import" href="../bower_components/paper-card/paper-card.html" />
 
 <dom-module id="contact-detalis">
 	<template>
@@ -11,16 +12,19 @@
 
     </style>
     
-    <div>
-      <span class="name">ali ramezani</span><br/>
-      <span class="mobile">+989152502743</span>
-    </div>
+    <paper-card image="../images/manifest/icon-512x512.png">
+      <div class="card-content">
+        <paper-card>
+          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dignissimos aperiam tempore quasi, itaque animi odit dolorem qui corporis repellat dicta esse porro voluptates perspiciatis culpa obcaecati. Alias earum, consectetur neque.</p>
+        </paper-card>
+      </div>
+    </paper-card>
 			
   </template>
     
   <script>
 		Polymer ({
-			is: 'detalis'
+			is: 'contact-detalis'
 		});
 	</script>
 </dom-module>
