@@ -1,8 +1,6 @@
 <link rel="import" href="../bower_components/polymer/polymer.html" />
 <link rel="import" href="shared-styles.html" />
-<link rel="import" href="contact-name.html" />
-<link rel="import" href="more-vert-menu.html" />
-<link rel="import" href="contact-circle.html" />
+<link rel="import" href="contact-list-item.html" />
 
 <dom-module id="group-list-item">
 	<template>
@@ -34,13 +32,9 @@
 
     </style>
 
-    <div class="cards flex-horizontal">
-      <contact-circle></contact-circle>
-      <a class="flexchild" name="contact-detalis" href="/contact-detalis" tabindex="3">
-        <contact-name></contact-name>
-      </a>
-      <more-vert-menu></more-vert-menu>
-    </div>
+		<contact-list-item></contact-list-item>
+		<contact-list-item></contact-list-item>
+		<contact-list-item></contact-list-item>
 
   </template>
     
