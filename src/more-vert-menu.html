@@ -13,19 +13,26 @@
 			:host {
       	display: block;
 				color: var(--app-primary-color);
-        
       }
 
 			paper-menu {
 				padding: 0;
 			}
 
+      .dropdown-content {
+        position: fixed;
+        right: 10px;
+        z-index: 103;
+
+        box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 1px 5px 0 rgba(0, 0, 0, 0.12), 0 3px 1px -2px rgba(0, 0, 0, 0.2);
+      }
+
     </style>
 		<paper-menu-button>
 			<paper-icon-button icon="more-vert" drawer-toggle class="dropdown-trigger"></paper-icon-button>
 			<paper-menu class="dropdown-content">
 				<paper-item>Edite</paper-item>
-				<paper-item on-tap="addFav">Fav</paper-item>
+				<paper-item>Fav</paper-item>
 				<paper-item>Add to group</paper-item>
 			</paper-menu>
 		</paper-menu-button>
@@ -35,10 +42,6 @@
   <script>
 		Polymer ({
 			is: 'more-vert-menu'
-
-			// addFav: function () {
-
-			// },
 		});
 	</script>
 </dom-module>
