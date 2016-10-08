@@ -5,10 +5,17 @@
   <template>
     <style>
 
+      :host {
+        display: block;
+      }
+
     </style>
 
-    <span>First Name </span><paper-input label="First Name"></paper-input>
-    <span>Last Name </span><paper-input label="Last Name"></paper-input>
+    <paper-input label="First Name"></paper-input>
+    <paper-input label="Last Name"></paper-input>
+    <paper-input label="Mobile" type="number"></paper-input>
+    <paper-input label="Email" type="email"></paper-input>
+    <paper-input label="Address"></paper-input>    
 
   </template>
   <script>
