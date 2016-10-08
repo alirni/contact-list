@@ -1,0 +1,52 @@
+<link rel="import" href="../bower_components/polymer/polymer.html" />
+<link rel="import" href="shared-styles.html" />
+<link rel="import" href="contact-name.html" />
+<link rel="import" href="more-vert-menu.html" />
+<link rel="import" href="contact-circle.html" />
+
+<dom-module id="group-list-item">
+	<template>
+		
+		<style include="shared-styles">
+			:host {
+      	display: block;
+      }
+
+			.flex-horizontal {
+				@apply(--layout-horizontal);
+			}
+
+			.flexchild {
+				@apply(--layout-flex);
+			}
+
+			a:visited {
+				color: #212121;
+			}
+
+			a:hover {
+				color: #212121;
+			}
+
+			a:active {
+				color: #212121;
+			}
+
+    </style>
+
+    <div class="cards flex-horizontal">
+      <contact-circle></contact-circle>
+      <a class="flexchild" name="contact-detalis" href="/contact-detalis" tabindex="3">
+        <contact-name></contact-name>
+      </a>
+      <more-vert-menu></more-vert-menu>
+    </div>
+
+  </template>
+    
+  <script>
+		Polymer ({
+			is: 'group-list-item'
+		});
+	</script>
+</dom-module>
