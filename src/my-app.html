@@ -76,14 +76,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
         pattern="/:page"
         data="{{routeData}}"
         tail="{{subroute}}"></app-route>
-
-    <app-drawer-layout fullbleed>
-      <!-- Drawer content -->
-      <app-drawer>
-      </app-drawer>
-
       <!-- Main content -->
-      <!--<app-header-layout has-scrolling-region>-->
 
       <app-header effects="waterfall" fixed>
         <app-toolbar>
@@ -112,7 +105,6 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
         <!--END tabs section-->
 
       </app-header>
-      <!--</app-header-layout>-->
       <iron-pages
           selected="[[page]]"
           attr-for-selected="name"
@@ -123,9 +115,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
         <group-view name="group-view"></group-view>
         <contact-detalis name="contact-detalis"></contact-detalis>
       </iron-pages>
-      <paper-fab icon="add"></paper-fab>      
-
-    </app-drawer-layout>
+      <paper-fab icon="add"></paper-fab>
   </template>
 
   <script>
