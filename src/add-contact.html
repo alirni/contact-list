@@ -1,13 +1,36 @@
 <link rel="import" href="../bower_components/polymer/polymer.html" />
 <link rel="import" href="create-contact.html" />
+<link rel="import" href="shared-styles.html" />
+<link rel="import" href="../bower_components/paper-card/paper-card.html" />
+<link rel="import" href="../bower_components/paper-button/paper-button.html" />
 
 <dom-module id="add-contact">
   <template>
-    <style>
+    <style >
+
+      :host {
+        display: block;
+      }
+
+      .card {
+        background-color: #fff;
+        padding: 20px;
+      }
+      
+      .card-action {
+        background-color: #fff;
+        padding: 0 16px 5px;     
+      }
 
     </style>
-
-    <create-contact></create-contact>
+    
+    <div class="card">
+      <create-contact></create-contact>
+    </div>
+    <div class="card-action">
+      <paper-button toggles>Save</paper-button>
+      <paper-button toggles>Cancle</paper-button>
+    </div>
 
   </template>
   <script>
