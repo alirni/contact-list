@@ -1,0 +1,35 @@
+<link rel="import" href="../bower_components/polymer/polymer.html" />
+<link rel="import" href="../bower_components/paper-styles/typography.html" />
+
+
+<dom-module id="contact-name">
+	<template>
+		
+		<style>
+			:host {
+      	display: block;
+      }
+
+			.mobile {
+				@apply(--paper-font-caption);
+			}
+
+			.name {
+				text-transform: capitalize;
+			}
+
+    </style>
+    
+    <div>
+      <span class="name">ali ramezani</span><br/>
+      <span class="mobile">+989152502743</span>
+    </div>
+			
+  </template>
+    
+  <script>
+		Polymer ({
+			is: 'contact-name'
+		});
+	</script>
+</dom-module>
