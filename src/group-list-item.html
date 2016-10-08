@@ -1,0 +1,64 @@
+<link rel="import" href="../bower_components/polymer/polymer.html" />
+<link rel="import" href="shared-styles.html" />
+<link rel="import" href="../bower_components/paper-icon-button/paper-icon-button.html" />
+<link rel="import" href="contact-circle.html" />
+<link rel="import" href="../bower_components/iron-flex-layout/iron-flex-layout.html" />
+<link rel="import" href="../bower_components/paper-styles/typography.html" />
+<link rel="import" href="../bower_components/paper-menu/paper-menu.html" />
+<link rel="import" href="../bower_components/paper-menu-button/paper-menu-button.html" />
+<link rel="import" href="../bower_components/paper-item/paper-item.html" />
+<link rel="import" href="more-vert-menu.html" />
+<link rel="import" href="contact-name.html" />
+<link rel="import" href="contact-detalis.html" />
+<link rel="import" href="../bower_components/app-route/app-location.html" />
+<link rel="import" href="../bower_components/app-route/app-route.html" />
+<link rel="import" href="../bower_components/iron-pages/iron-pages.html" />
+
+
+
+<dom-module id="contact-list-item">
+	<template>
+		
+		<style include="shared-styles">
+			:host {
+      	display: block;
+      }
+
+			.flex-horizontal {
+				@apply(--layout-horizontal);
+			}
+
+			.flexchild {
+				@apply(--layout-flex);
+			}
+
+			a:visited {
+				color: #212121;
+			}
+
+			a:hover {
+				color: #212121;
+			}
+
+			a:active {
+				color: #212121;
+			}
+
+    </style>
+
+    <div class="cards flex-horizontal">
+      <contact-circle></contact-circle>
+      <a class="flexchild" name="contact-detalis" href="/contact-detalis" tabindex="3">
+        <contact-name></contact-name>
+      </a>
+      <more-vert-menu></more-vert-menu>
+    </div>
+
+  </template>
+    
+  <script>
+		Polymer ({
+			is: 'contact-list-item'
+		});
+	</script>
+</dom-module>
