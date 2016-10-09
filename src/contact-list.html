@@ -1,6 +1,7 @@
 <link rel="import" href="../bower_components/polymer/polymer.html">
 <link rel="import" href="contact-list-item.html">
 <link rel="import" href="shared-styles.html" />
+<link rel="import" href="../bower_components/iron-ajax/iron-ajax.html" />
 
 <dom-module id="contact-list">
 	<template>
@@ -11,6 +12,8 @@
       }
 
     </style>
+
+		<iron-ajax url="data/contacts.json" last-response="{{data}}" auto></iron-ajax>
 		<div>
 			<contact-list-item></contact-list-item>
 			<contact-list-item></contact-list-item>
