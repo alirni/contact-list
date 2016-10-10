@@ -4,6 +4,7 @@
 <link rel="import" href="../bower_components/iron-ajax/iron-ajax.html" />
 <link rel="import" href="../bower_components/iron-list/iron-list.html" />
 <link rel="import" href="../bower_components/iron-flex-layout/iron-flex-layout.html" />
+<link rel="import" href="../bower_components/paper-styles/typography.html" />
 
 <dom-module id="contact-list">
 	<template>
@@ -24,30 +25,39 @@
 				padding: 15px;
 			}
 
+			.image {
+				width: 50px;
+				height: 50px;
+			}
+
 			.image img {
 				border-radius: 100%;
-				width: 50px;
+				width: 50px;				
 			}
 
 			.container {
 				@apply(--layout-horizontal);
-				outline: 1px solid yellow;
+				/*outline: 1px solid yellow;*/
 			}
 
-			.container > * {
+			/*.container > * {
 				outline: 1px solid green;
 			}
 
 			.container > * > * {
 				outline: 1px solid blue;
-			}
+			}*/
 
 			.flexchild {
 				@apply(--layout-flex);
 			}
 
 			.info {
-				margin-left: 15px;
+				margin: auto 15px;
+			}
+
+			.phone {
+				@apply(--paper-font-caption);				
 			}
 
     </style>
@@ -66,9 +76,6 @@
 						<div class="phone">
 							[[item.phone]]
 						</div>
-						<!--<div class="email">
-							[[item.email]]
-						</div>-->
 					</div>
 				</div>
 			</template>
