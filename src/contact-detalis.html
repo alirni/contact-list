@@ -1,11 +1,14 @@
 <link rel="import" href="../bower_components/polymer/polymer.html" />
 <link rel="import" href="../bower_components/paper-card/paper-card.html" />
-<link rel="import" href="shared-styles.html" />
-<link rel="import" href="my-icons.html" />
 <link rel="import" href="../bower_components/paper-icon-button/paper-icon-button.html" />
-<link rel="import" href="../bower_components/iron-flex-layout/iron-flex-layout.html" />
 <link rel="import" href="../bower_components/paper-styles/typography.html" />
 <link rel="import" href="../bower_components/paper-button/paper-button.html" />
+<link rel="import" href="../bower_components/iron-flex-layout/iron-flex-layout.html" />
+<link rel="import" href="../bower_components/iron-ajax/iron-ajax.html" />
+<link rel="import" href="shared-styles.html" />
+<link rel="import" href="my-icons.html" />
+<link rel="import" href="contact-list.html" />
+<link rel="import" href="../bower_components/iron-list/iron-list.html" />
 
 
 <dom-module id="contact-detalis">
@@ -77,56 +80,60 @@
       }
 
     </style>
-    
-    <paper-card heading="ali ramezani" image="../images/bc2.jpg">
-      <div class="card-actions flex-reversed">
-        <paper-icon-button icon="create" drawer-toggle></paper-icon-button>
-        <paper-icon-button on-tap="changeIconG" icon="[[iconGroup]]" drawer-toggle></paper-icon-button>
-        <paper-icon-button on-tap="changeIconS" icon="[[iconStar]]" drawer-toggle></paper-icon-button>
-      </div>
-      <div class="mycard">
-        <div class="flex-horizontal">
-          <paper-icon-button class="margin-righ" icon="phone" drawer-toggle></paper-icon-button>          
-          <div class="flex-vertical flexchild">         
-            <div class="part">
-              <span class="mobile">+989152502743</span><br/>
-              <span class="name">mobil</span>
+
+    <iron-ajax url="data/contacts.json" last-response="{{data}}" auto></iron-ajax>
+		<iron-list items="[[data]]" as="item">
+      <template>
+        <paper-card heading="[[item.name]]" image="[[item.image]]">
+          <div class="card-actions flex-reversed">
+            <paper-icon-button icon="create" drawer-toggle></paper-icon-button>
+            <paper-icon-button on-tap="changeIconG" icon="[[iconGroup]]" drawer-toggle></paper-icon-button>
+            <paper-icon-button on-tap="changeIconS" icon="[[iconStar]]" drawer-toggle></paper-icon-button>
+          </div>
+          <div class="mycard">
+            <div class="flex-horizontal">
+              <paper-icon-button class="margin-righ" icon="phone" drawer-toggle></paper-icon-button>          
+              <div class="flex-vertical flexchild">         
+                <div class="part">
+                  <span class="mobile">[[item.phone]]</span><br/>
+                  <span class="name">mobil</span>
+                </div>
+                <div class="part end">
+                  <span class="mobile">[[item.phone]]</span><br/>
+                  <span class="name">home</span>
+                </div>
+              </div>
             </div>
-            <div class="part end">
-              <span class="mobile">05138831045</span><br/>
-              <span class="name">home</span>
+            <div class="flex-horizontal">
+              <paper-icon-button class="margin-righ" icon="mail" drawer-toggle></paper-icon-button> 
+              <div class="flex-vertical flexchild">         
+                <div class="part">
+                  <span class="mobile">[[item.email]]</span><br/>
+                  <span class="name">personal</span>
+                </div>
+                <div class="part end">
+                  <span class="mobile">[[item.email]]</span><br/>
+                  <span class="name">work</span>
+                </div>
+              </div>
+            </div>
+            <div class="flex-horizontal">
+              <paper-icon-button class="margin-righ" icon="location-on" drawer-toggle></paper-icon-button> 
+              <div class="flex-vertical flexchild">         
+                <div class="part">
+                  <span class="mobile">[[item.address]] [[item.city]]</span><br/>
+                  <span class="name">home</span>
+                </div>
+                <div class="part">
+                  <span class="mobile">[[item.address]] [[item.city]]</span><br/>
+                  <span class="name">work</span>
+                </div>
+              </div>
             </div>
           </div>
-        </div>
-        <div class="flex-horizontal">
-          <paper-icon-button class="margin-righ" icon="mail" drawer-toggle></paper-icon-button> 
-          <div class="flex-vertical flexchild">         
-            <div class="part">
-              <span class="mobile">aliramezan191@gmail.com</span><br/>
-              <span class="name">personal</span>
-            </div>
-            <div class="part end">
-              <span class="mobile">ali@ramezany.com</span><br/>
-              <span class="name">work</span>
-            </div>
-          </div>
-        </div>
-        <div class="flex-horizontal">
-          <paper-icon-button class="margin-righ" icon="location-on" drawer-toggle></paper-icon-button> 
-          <div class="flex-vertical flexchild">         
-            <div class="part">
-              <span class="mobile">2000 WS 1st ave san francisco</span><br/>
-              <span class="name">home</span>
-            </div>
-            <div class="part">
-              <span class="mobile">2000 WS 1st ave san francisco</span><br/>
-              <span class="name">work</span>
-            </div>
-          </div>
-        </div>
-      </div>
-    </paper-card>
-			
+        </paper-card>
+      </template>
+		</iron-list>	
   </template>
     
   <script>
