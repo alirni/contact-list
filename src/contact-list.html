@@ -98,19 +98,23 @@
   </template>
     
   <script>
-		Polymer ({
-			is: 'contact-list',
+		(function () {
+			'use strict';
 
-			properties: {
-        tapId: {
-          type: Number
-        }
-      },
+			Polymer ({
+				is: 'contact-list',
 
-			tap: function (event) {
-				this.tapId = event.model.item.index;
-				console.log(this.tapId);				
-			}
-		});
+				properties: {
+					tapId: {
+						type: Number
+					}
+				},
+
+				tap: function (event) {
+					this.tapId = event.model.item.index;
+					console.log(this.tapId);				
+				}
+			});
+		})();
 	</script>
 </dom-module>

@@ -137,37 +137,41 @@
   </template>
     
   <script>
-		Polymer ({
-			is: 'contact-detalis',
+    (function () {
+      'use strict';
 
-      properties: {
-        iconStar: {
-          type: String,
-          value: 'star-border'
+      Polymer ({
+        is: 'contact-detalis',
+
+        properties: {
+          iconStar: {
+            type: String,
+            value: 'star-border'
+          },
+          iconGroup: {
+            type: String,
+            value: 'people-outline'
+          }
         },
-        iconGroup: {
-          type: String,
-          value: 'people-outline'
-        }
-      },
 
-      changeIconS: function() {
-        if (this.iconStar !== 'star') {
-          this.iconStar = 'star';
-        }
-        else {
-          this.iconStar = 'star-border';
-        }
-      },
+        changeIconS: function() {
+          if (this.iconStar !== 'star') {
+            this.iconStar = 'star';
+          }
+          else {
+            this.iconStar = 'star-border';
+          }
+        },
 
-      changeIconG: function() {
-        if (this.iconGroup !== 'people') {
-          this.iconGroup = 'people';
+        changeIconG: function() {
+          if (this.iconGroup !== 'people') {
+            this.iconGroup = 'people';
+          }
+          else {
+            this.iconGroup = 'people-outline';
+          }
         }
-        else {
-          this.iconGroup = 'people-outline';
-        }
-      }
-		});
+      });
+    })();
 	</script>
 </dom-module>
