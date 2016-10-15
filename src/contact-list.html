@@ -107,9 +107,8 @@
         }
       },
 
-			tap: function () {
-				console.log(this.tapId);
-				this.tapId = item.index;
+			tap: function (event) {
+				this.tapId = event.model.item.index;
 				console.log(this.tapId);				
 			}
 		});
