@@ -29,8 +29,9 @@
 				},
 
 				myTap: function (event) {
-					this.tapId = event.model.item.index;
-					console.log(this.tapId);				
+					this.fire('getId');
+					// this.tapId = event.model.item.index;
+					// console.log(this.tapId);				
 				}
 			});
 		})();
