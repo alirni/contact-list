@@ -75,8 +75,8 @@
 
     </style>
 
-		<iron-ajax url="data/contacts.json" last-response="{{data}}" auto></iron-ajax>
-		<!--<load-data></load-data>-->
+		<!--<iron-ajax url="data/contacts.json" last-response="{{data}}" auto></iron-ajax>-->
+		<load-data></load-data>
 		<iron-list items="[[data]]" as="item">
 			<template>
 				<div class="item container">
@@ -117,6 +117,7 @@
 					console.log(this.tapId);				
 				}
 			});
+			
 		})();
 	</script>
 </dom-module>
