@@ -1,6 +1,5 @@
 <link rel="import" href="../bower_components/polymer/polymer.html" />
 <link rel="import" href="../bower_components/iron-ajax/iron-ajax.html" />
-<link rel="import" href="../bower_components/iron-list/iron-list.html" />
 
 <dom-module id="load-data">
 	<template>
@@ -13,8 +12,7 @@
     </style>
 
 		<iron-ajax url="data/contacts.json" last-response="{{data}}" auto></iron-ajax>
-		<iron-list items="[[data]]" as="item">
-		</iron-list>
+
   </template>
     
   <script>
@@ -30,7 +28,7 @@
 					}
 				},
 
-				tap: function (event) {
+				myTap: function (event) {
 					this.tapId = event.model.item.index;
 					console.log(this.tapId);				
 				}
