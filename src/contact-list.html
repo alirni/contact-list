@@ -1,7 +1,7 @@
 <link rel="import" href="../bower_components/polymer/polymer.html" />
 <link rel="import" href="contact-list-item.html" />
 <link rel="import" href="shared-styles.html" />
-<link rel="import" href="../bower_components/iron-ajax/iron-ajax.html" />
+<link rel="import" href="load-data.html" />
 <link rel="import" href="../bower_components/iron-list/iron-list.html" />
 <link rel="import" href="../bower_components/iron-flex-layout/iron-flex-layout.html" />
 <link rel="import" href="../bower_components/paper-styles/typography.html" />
@@ -74,14 +74,14 @@
 
     </style>
 
-		<iron-ajax url="data/contacts.json" last-response="{{data}}" auto></iron-ajax>
+		<load-data></load-data>
 		<iron-list items="[[data]]" as="item">
 			<template>
 				<div class="item container">
 					<div class="image">
 						<img src="[[item.image]]" alt="" />
 					</div>
-					<a class="info flexchild" on-tap="tap" name="contact-detalis" href="/contact-detalis">
+					<a class="info flexchild" on-getId="tap" name="contact-detalis" href="/contact-detalis">
 						<div>
 							<div class="name">
 								[[item.name]]
