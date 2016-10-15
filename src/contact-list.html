@@ -5,6 +5,7 @@
 <link rel="import" href="../bower_components/iron-list/iron-list.html" />
 <link rel="import" href="../bower_components/iron-flex-layout/iron-flex-layout.html" />
 <link rel="import" href="../bower_components/paper-styles/typography.html" />
+<link rel="import" href="../bower_components/iron-ajax/iron-ajax.html" />
 
 <dom-module id="contact-list">
 	<template>
@@ -15,7 +16,7 @@
       }
 
 			iron-list {
-				height: 100vh;
+				height: 92vh;
 				background-color: #FAFAFA;
 			}
 
@@ -74,7 +75,8 @@
 
     </style>
 
-		<load-data></load-data>
+		<iron-ajax url="data/contacts.json" last-response="{{data}}" auto></iron-ajax>
+		<!--<load-data></load-data>-->
 		<iron-list items="[[data]]" as="item">
 			<template>
 				<div class="item container">
