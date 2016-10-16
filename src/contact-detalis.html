@@ -82,8 +82,9 @@
     </style>
 
     <iron-ajax url="data/contacts.json" last-response="{{data}}" auto></iron-ajax>
-		<iron-list items="[[data]]" as="item">
-      <template>
+    <div items="[[data]]" as="item">
+		<!--<iron-list items="[[data]]" as="item">-->
+      <!--<template>-->
         <paper-card heading="[[item.name]]" image="[[item.image]]">
           <div class="card-actions flex-reversed">
             <paper-icon-button icon="create" drawer-toggle></paper-icon-button>
@@ -132,8 +133,9 @@
             </div>
           </div>
         </paper-card>
-      </template>
-		</iron-list>	
+      <!--</template>-->
+		<!--</iron-list>	-->
+    </div>
   </template>
     
   <script>
