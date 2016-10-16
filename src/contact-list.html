@@ -75,15 +75,15 @@
 
     </style>
 
-		<!--<iron-ajax url="data/contacts.json" last-response="{{data}}" auto></iron-ajax>-->
-		<load-data></load-data>
+		<iron-ajax url="data/contacts.json" last-response="{{data}}" auto></iron-ajax>
+		<!--<load-data></load-data>-->
 		<iron-list items="[[data]]" as="item">
 			<template>
 				<div class="item container">
 					<div class="image">
 						<img src="[[item.image]]" alt="" />
 					</div>
-					<a class="info flexchild" on-getId="tap" name="contact-detalis" href="/contact-detalis">
+					<a class="info flexchild" on-tap="tap" name="contact-detalis" href="/contact-detalis">
 						<div>
 							<div class="name">
 								[[item.name]]
