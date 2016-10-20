@@ -109,11 +109,17 @@
 				properties: {
 					tapId: {
 						type: Number
-					}
+					},
+					// cobj: {
+					// 	type: Object,
+					// 	value: null
+					// }
 				},
 
 				tap: function (event) {
-					this.tapId = event.model.item.index;
+					// this.cobj = event.model.item;
+					// console.log(this.cobj);
+					this.tapId = event.model.item;
 					console.log(this.tapId);				
 				}
 			});
