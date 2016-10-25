@@ -6,6 +6,7 @@
 <link rel="import" href="../bower_components/iron-flex-layout/iron-flex-layout.html" />
 <link rel="import" href="../bower_components/paper-styles/typography.html" />
 <link rel="import" href="../bower_components/iron-ajax/iron-ajax.html" />
+<link rel="import" href="../bower_components/iron-meta/iron-meta.html" />
 
 <dom-module id="contact-list">
 	<template>
@@ -76,6 +77,8 @@
     </style>
 
 		<iron-ajax url="data/contacts.json" last-response="{{data}}" auto></iron-ajax>
+		
+		<iron-meta key="contacts" value="{{data}}"></iron-meta>
 		<!--<load-data></load-data>-->
 		<iron-list items="[[data]]" as="item">
 			<template>
@@ -83,17 +86,15 @@
 					<div class="image">
 						<img src="[[item.image]]" alt="" />
 					</div>
-					<!--<a class="info flexchild" on-tap="tap" name="contact-detalis" href="/contact-detalis">-->
-						<div class="info flexchild" on-tap="tap" >
-							<div class="name">
-								[[item.name]]
-							</div>
-							<div class="phone">
-								[[item.phone]]<br/>
-								[[item.index]]
-							</div>
+					<div class="info flexchild" on-tap="tap" >
+						<div class="name">
+							[[item.name]]
 						</div>
-      		<!--</a>-->
+						<div class="phone">
+							[[item.phone]]<br/>
+							[[item.index]]
+						</div>
+					</div>
 				</div>
 			</template>
 		</iron-list>
@@ -113,14 +114,14 @@
 				},
 
 				tap: function (event) {
-					console.log('************ TAP **************');
+					// console.log('************ TAP **************');
 
 					this.contactindex = event.model.item.index;
-					console.log('contactindex(ID) : ' + this.contactindex);
+					// console.log('contactindex(ID) : ' + this.contactindex);
 
 					this.fire('sendindex', this.contactindex);
           
-					console.log('************ TAP **************');
+					// console.log('************ TAP **************');
 				}
 			});
 			

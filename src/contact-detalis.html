@@ -11,6 +11,7 @@
 <link rel="import" href="contact-view.html" />
 <link rel="import" href="../bower_components/iron-list/iron-list.html" />
 <link rel="import" href="../bower_components/app-route/app-route.html" />
+<link rel="import" href="../bower_components/iron-meta/iron-meta.html" />
 
 
 <dom-module id="contact-detalis">
@@ -88,10 +89,11 @@
         pattern="/:index"
         data="{{routeData}}"></app-route>
 
-    <iron-ajax url="data/contacts.json" last-response="{{data}}" auto></iron-ajax>
-		<iron-list items="[[data]]" as="item">
-      <template>
-        <paper-card heading="[[item.name]]" image="[[item.image]]">
+    <!--<iron-ajax url="data/contacts.json" last-response="{{data}}" auto></iron-ajax>-->
+    <iron-meta id="meta"></iron-meta>
+		<!--<iron-list items="[[data]]" as="item">
+      <template>-->
+        <paper-card heading="[[datacontacts.name]]" image="[[datacontacts.image]]">
           <div class="card-actions flex-reversed">
             <paper-icon-button icon="create" drawer-toggle></paper-icon-button>
             <paper-icon-button on-tap="changeIconG" icon="[[iconGroup]]" drawer-toggle></paper-icon-button>
@@ -102,11 +104,11 @@
               <paper-icon-button class="margin-righ" icon="phone" drawer-toggle></paper-icon-button>          
               <div class="flex-vertical flexchild">         
                 <div class="part">
-                  <span class="mobile">[[item.phone]]</span><br/>
+                  <span class="mobile">[[datacontacts.phone]]</span><br/>
                   <span class="name">mobil</span>
                 </div>
                 <div class="part end">
-                  <span class="mobile">[[item.phone]]</span><br/>
+                  <span class="mobile">[[datacontacts.phone]]</span><br/>
                   <span class="name">home</span>
                 </div>
               </div>
@@ -115,11 +117,11 @@
               <paper-icon-button class="margin-righ" icon="mail" drawer-toggle></paper-icon-button> 
               <div class="flex-vertical flexchild">         
                 <div class="part">
-                  <span class="mobile">[[item.email]]</span><br/>
+                  <span class="mobile">[[datacontacts.email]]</span><br/>
                   <span class="name">personal</span>
                 </div>
                 <div class="part end">
-                  <span class="mobile">[[item.email]]</span><br/>
+                  <span class="mobile">[[datacontacts.email]]</span><br/>
                   <span class="name">work</span>
                 </div>
               </div>
@@ -128,19 +130,19 @@
               <paper-icon-button class="margin-righ" icon="location-on" drawer-toggle></paper-icon-button> 
               <div class="flex-vertical flexchild">         
                 <div class="part">
-                  <span class="mobile">[[item.address]] [[item.city]]</span><br/>
+                  <span class="mobile">[[datacontacts.address]] [[datacontacts.city]]</span><br/>
                   <span class="name">home</span>
                 </div>
                 <div class="part">
-                  <span class="mobile">[[item.address]] [[item.city]]</span><br/>
+                  <span class="mobile">[[datacontacts.address]] [[datacontacts.city]]</span><br/>
                   <span class="name">work</span>
                 </div>
               </div>
             </div>
           </div>
         </paper-card>
-      </template>
-		</iron-list>	
+      <!--</template>
+		</iron-list>	-->
   </template>
     
   <script>
@@ -162,7 +164,14 @@
             value: 'people-outline'
           },
 
-          route : Object
+          route : {
+            type : Object,
+          },
+
+          datacontacts : {
+            type : Object,
+          }
+
         },
 
         changeIconS: function() {
@@ -182,6 +191,12 @@
             this.iconGroup = 'people-outline';
           }
         },
+
+        ready: function () {
+          this.datacontacts = this.$.meta.byKey('contacts');
+
+          console.log(this.datacontacts);
+        }
       });
     })();
 	</script>
