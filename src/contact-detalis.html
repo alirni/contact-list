@@ -27,6 +27,7 @@
       }
 
       paper-card {
+        width: 100%;
         --paper-card-background-color: #eeeeee;
         --paper-card-header-color: var(--app-primary-color);
         --paper-card-header-text: {
@@ -85,64 +86,59 @@
     </style>
 
     <app-route
-        route="{{route}}"
-        pattern="/:index"
-        data="{{routeData}}"></app-route>
+      route="{{route}}"
+      pattern="/:index"
+      data="{{routeData}}"></app-route>
 
-    <!--<iron-ajax url="data/contacts.json" last-response="{{data}}" auto></iron-ajax>-->
     <iron-meta id="meta"></iron-meta>
-		<!--<iron-list items="[[data]]" as="item">
-      <template>-->
-        <paper-card heading="[[contact.name]]" image="[[contact.image]]">
-          <div class="card-actions flex-reversed">
-            <paper-icon-button icon="create" drawer-toggle></paper-icon-button>
-            <paper-icon-button on-tap="changeIconG" icon="[[iconGroup]]" drawer-toggle></paper-icon-button>
-            <paper-icon-button on-tap="changeIconS" icon="[[iconStar]]" drawer-toggle></paper-icon-button>
-          </div>
-          <div class="mycard">
-            <div class="flex-horizontal">
-              <paper-icon-button class="margin-righ" icon="phone" drawer-toggle></paper-icon-button>          
-              <div class="flex-vertical flexchild">         
-                <div class="part">
-                  <span class="mobile">[[contact.phone]]</span><br/>
-                  <span class="name">mobil</span>
-                </div>
-                <div class="part end">
-                  <span class="mobile">[[contact.phone]]</span><br/>
-                  <span class="name">home</span>
-                </div>
-              </div>
+    <paper-card heading="[[contact.name]]" image="[[contact.image]]">
+      <div class="card-actions flex-reversed">
+        <paper-icon-button icon="create" drawer-toggle></paper-icon-button>
+        <paper-icon-button on-tap="changeIconG" icon="[[iconGroup]]" drawer-toggle></paper-icon-button>
+        <paper-icon-button on-tap="changeIconS" icon="[[iconStar]]" drawer-toggle></paper-icon-button>
+      </div>
+      <div class="mycard">
+        <div class="flex-horizontal">
+          <paper-icon-button class="margin-righ" icon="phone" drawer-toggle></paper-icon-button>          
+          <div class="flex-vertical flexchild">         
+            <div class="part">
+              <span class="mobile">[[contact.phone]]</span><br/>
+              <span class="name">mobil</span>
             </div>
-            <div class="flex-horizontal">
-              <paper-icon-button class="margin-righ" icon="mail" drawer-toggle></paper-icon-button> 
-              <div class="flex-vertical flexchild">         
-                <div class="part">
-                  <span class="mobile">[[contact.email]]</span><br/>
-                  <span class="name">personal</span>
-                </div>
-                <div class="part end">
-                  <span class="mobile">[[contact.email]]</span><br/>
-                  <span class="name">work</span>
-                </div>
-              </div>
-            </div>
-            <div class="flex-horizontal">
-              <paper-icon-button class="margin-righ" icon="location-on" drawer-toggle></paper-icon-button> 
-              <div class="flex-vertical flexchild">         
-                <div class="part">
-                  <span class="mobile">[[contact.address]] [[contact.city]]</span><br/>
-                  <span class="name">home</span>
-                </div>
-                <div class="part">
-                  <span class="mobile">[[contact.address]] [[contact.city]]</span><br/>
-                  <span class="name">work</span>
-                </div>
-              </div>
+            <div class="part end">
+              <span class="mobile">[[contact.phone]]</span><br/>
+              <span class="name">home</span>
             </div>
           </div>
-        </paper-card>
-      <!--</template>
-		</iron-list>	-->
+        </div>
+        <div class="flex-horizontal">
+          <paper-icon-button class="margin-righ" icon="mail" drawer-toggle></paper-icon-button> 
+          <div class="flex-vertical flexchild">         
+            <div class="part">
+              <span class="mobile">[[contact.email]]</span><br/>
+              <span class="name">personal</span>
+            </div>
+            <div class="part end">
+              <span class="mobile">[[contact.email]]</span><br/>
+              <span class="name">work</span>
+            </div>
+          </div>
+        </div>
+        <div class="flex-horizontal">
+          <paper-icon-button class="margin-righ" icon="location-on" drawer-toggle></paper-icon-button> 
+          <div class="flex-vertical flexchild">         
+            <div class="part">
+              <span class="mobile">[[contact.address]] [[contact.city]]</span><br/>
+              <span class="name">home</span>
+            </div>
+            <div class="part">
+              <span class="mobile">[[contact.address]] [[contact.city]]</span><br/>
+              <span class="name">work</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </paper-card>
   </template>
     
   <script>
