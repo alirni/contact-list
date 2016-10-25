@@ -101,7 +101,7 @@
         <group-view name="group-view"></group-view>
         <contact-detalis route="{{subroute}}" name="contact-detalis"></contact-detalis>
         <group-list-item name="group-list-item"></group-list-item>
-        <add-contact name="add-contact"></add-contact>
+        <add-contact on-backpage="back" name="add-contact"></add-contact>
       </iron-pages>
       <!--<paper-fab icon="add"></paper-fab>-->
       <a name="add-contact" href="/add-contact" tabindex="3">
@@ -144,7 +144,7 @@
         },
 
         send: function (event) {
-          
+
           // console.log('************ SEND *************');
 
           // console.log('routeData ' + this.routeData.page);          
@@ -156,7 +156,11 @@
           // console.log('subroute ' + this.subroute.path);
           
           // console.log('************ SEND *************');
-        }
+        },
+
+        back: function () {
+          this.set('route.path', '/contact-view');
+        },
       });
     })();    
   </script>

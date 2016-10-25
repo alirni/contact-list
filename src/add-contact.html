@@ -23,13 +23,18 @@
       }
 
     </style>
+
+    <app-route
+      route="{{route}}"
+      pattern="/:page"
+      data="{{routeData}}"></app-route>
     
     <div class="card">
       <create-contact></create-contact>
     </div>
     <div class="card-action">
       <paper-button toggles>Save</paper-button>
-      <paper-button toggles>Cancle</paper-button>
+      <paper-button on-tap="tap" toggles>Cancle</paper-button>
     </div>
 
   </template>
@@ -38,7 +43,11 @@
       'use strict';
 
       Polymer ({
-        is : 'add-contact'
+        is : 'add-contact',
+
+        tap: function() {
+          this.fire('backpage');
+        }
       });  
     })();
   </script>
