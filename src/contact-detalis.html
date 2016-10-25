@@ -8,7 +8,9 @@
 <link rel="import" href="shared-styles.html" />
 <link rel="import" href="my-icons.html" />
 <link rel="import" href="contact-list.html" />
+<link rel="import" href="contact-view.html" />
 <link rel="import" href="../bower_components/iron-list/iron-list.html" />
+<link rel="import" href="../bower_components/app-route/app-route.html" />
 
 
 <dom-module id="contact-detalis">
@@ -81,6 +83,11 @@
 
     </style>
 
+    <app-route
+        route="{{route}}"
+        pattern="/:index"
+        data="{{routeData}}"></app-route>
+
     <iron-ajax url="data/contacts.json" last-response="{{data}}" auto></iron-ajax>
 		<iron-list items="[[data]]" as="item">
       <template>
@@ -144,14 +151,18 @@
         is: 'contact-detalis',
 
         properties: {
+          
           iconStar: {
             type: String,
             value: 'star-border'
           },
+          
           iconGroup: {
             type: String,
             value: 'people-outline'
-          }
+          },
+
+          route : Object
         },
 
         changeIconS: function() {
@@ -170,7 +181,7 @@
           else {
             this.iconGroup = 'people-outline';
           }
-        }
+        },
       });
     })();
 	</script>

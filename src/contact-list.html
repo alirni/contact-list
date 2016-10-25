@@ -6,7 +6,6 @@
 <link rel="import" href="../bower_components/iron-flex-layout/iron-flex-layout.html" />
 <link rel="import" href="../bower_components/paper-styles/typography.html" />
 <link rel="import" href="../bower_components/iron-ajax/iron-ajax.html" />
-<link rel="import" href="../bower_components/app-route/app-route.html" />
 
 <dom-module id="contact-list">
 	<template>
@@ -76,11 +75,6 @@
 
     </style>
 
-		<app-route
-        route="{{route}}"
-        pattern="/:page"
-        data="{{routeData}}"></app-route>
-
 		<iron-ajax url="data/contacts.json" last-response="{{data}}" auto></iron-ajax>
 		<!--<load-data></load-data>-->
 		<iron-list items="[[data]]" as="item">
@@ -89,8 +83,8 @@
 					<div class="image">
 						<img src="[[item.image]]" alt="" />
 					</div>
-					<a class="info flexchild" on-tap="tap" name="contact-detalis" href="/contact-detalis">
-						<div>
+					<!--<a class="info flexchild" on-tap="tap" name="contact-detalis" href="/contact-detalis">-->
+						<div class="info flexchild" on-tap="tap" >
 							<div class="name">
 								[[item.name]]
 							</div>
@@ -99,7 +93,7 @@
 								[[item.index]]
 							</div>
 						</div>
-      		</a>
+      		<!--</a>-->
 				</div>
 			</template>
 		</iron-list>
@@ -113,29 +107,20 @@
 				is: 'contact-list',
 
 				properties: {
-					tapId: {
+					contactindex: {
 						type: Number
-					},
-
-					data : Object,
-
-					routeData : Number,
-
-					// cobj: {
-					// 	type: Object,
-					// 	value: null
-					// }
+					}
 				},
 
 				tap: function (event) {
-					// this.cobj = event.model.item;
-					// console.log(this.cobj);
-					this.tapId = event.model.item.index;
-					// console.log(this.tapId);
-					this.routeData = this.tapId;
-					console.log("routeData(ID) : " + this.routeData);
-					
+					console.log('************ TAP **************');
 
+					this.contactindex = event.model.item.index;
+					console.log('contactindex(ID) : ' + this.contactindex);
+
+					this.fire('sendindex', this.contactindex);
+          
+					console.log('************ TAP **************');
 				}
 			});
 			
