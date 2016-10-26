@@ -96,6 +96,9 @@
         <paper-icon-button icon="create" drawer-toggle></paper-icon-button>
         <paper-icon-button on-tap="changeIconG" icon="[[iconGroup]]" drawer-toggle></paper-icon-button>
         <paper-icon-button on-tap="changeIconS" icon="[[iconStar]]" drawer-toggle></paper-icon-button>
+        <div class="flexchild" >
+          <paper-icon-button on-tap="tap" icon="arrow-back" drawer-toggle></paper-icon-button>
+        </div>
       </div>
       <div class="mycard">
         <div class="flex-horizontal">
@@ -202,7 +205,12 @@
           else {
             return;
           }
+        },
+
+        tap: function() {
+          this.fire('backpage');
         }
+        
       });
     })();
 	</script>
