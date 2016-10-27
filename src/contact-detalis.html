@@ -91,6 +91,7 @@
       data="{{routeData}}"></app-route>
 
     <iron-meta id="meta"></iron-meta>
+    
     <paper-card heading="[[contact.name]]" image="[[contact.image]]">
       <div class="card-actions flex-reversed">
         <paper-icon-button icon="create" drawer-toggle></paper-icon-button>
@@ -196,15 +197,28 @@
         },
 
         getcontacts: function (index) {
-          var datacontacts = this.$.meta.byKey('contacts');
-          // console.log(datacontacts);
+          if (index == undefined) {
+            return false;
+          }
 
-          if (index !== undefined) {
-            this.contact = datacontacts[index];
+          index = Number(index);
+          if (isNaN(index)){
+            return false;            
           }
-          else {
-            return;
-          }
+
+          var datacontacts = this.$.meta.byKey('contacts');
+          this.contact = datacontacts ? datacontacts[index]: null;
+          // console.log(datacontacts);
+          // index = Number(index);
+          // console.log('Number ' + test);          
+          // if ()
+          // if (index !== undefined) {
+          //   this.contact = datacontacts[index];
+          // }
+          // else {
+          //   return;
+          // }
+          
         },
 
         tap: function() {

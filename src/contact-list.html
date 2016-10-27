@@ -77,9 +77,8 @@
     </style>
 
 		<iron-ajax url="data/contacts.json" last-response="{{data}}" auto></iron-ajax>
-		
 		<iron-meta key="contacts" value="{{data}}"></iron-meta>
-		<!--<load-data></load-data>-->
+		
 		<iron-list items="[[data]]" as="item">
 			<template>
 				<div class="item container">

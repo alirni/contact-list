@@ -1,5 +1,9 @@
 <link rel="import" href="../bower_components/polymer/polymer.html" />
 <link rel="import" href="../bower_components/paper-input/paper-input.html" />
+<link rel="import" href="my-icons.html" />
+<link rel="import" href="../bower_components/iron-icon/iron-icon.html" />
+<link rel="import" href="../bower_components/paper-icon-button/paper-icon-button.html" />
+
 
 <dom-module id="create-contact">
   <template>
@@ -9,21 +13,59 @@
         display: block;
       }
 
+      iron-icon {
+        margin-right: 5px;
+      }
+
+      paper-icon-button {
+        color: var(--paper-red-300);
+        --paper-icon-button-ink-color: var(--paper-red-a100);
+        width: 23px; /* 15px + 2*4px for padding */
+        height: 23px;
+        padding: 0px 4px;
+      }
+
     </style>
 
-    <paper-input label="First Name"></paper-input>
-    <paper-input label="Last Name"></paper-input>
-    <paper-input label="Mobile" type="number"></paper-input>
-    <paper-input label="Email" type="email"></paper-input>
-    <paper-input label="Address"></paper-input>    
+    <paper-input label="First Name">
+      <paper-icon-button suffix on-tap="clearinput" icon="close">
+    </paper-input>
+    
+    <paper-input label="Last Name">
+      <paper-icon-button suffix on-tap="clearinput" icon="close">
+    </paper-input>
+    
+    <paper-input label="Mobile" type="number">
+      <iron-icon icon="phone" prefix></iron-icon>
+      <paper-icon-button suffix on-tap="clearinput" icon="close">
+    </paper-input>
+    
+    <paper-input label="Email" type="email">
+      <iron-icon icon="mail" prefix></iron-icon>
+      <paper-icon-button suffix on-tap="clearinput" icon="close">
+    </paper-input>
+    
+    <paper-input label="Address">
+      <iron-icon icon="location-on" prefix></iron-icon>
+      <paper-icon-button suffix on-tap="clearinput" icon="close">
+    </paper-input>    
 
   </template>
   <script>
+
+    
+
     (function () {
       'use strict';
 
       Polymer ({
-        is : 'create-contact'
+        is : 'create-contact',
+
+        clearinput : function () {
+          // document.getElementById('inputWithButton').value = '';
+          // this.value = '';
+        }
+
       });
     })();
   </script>
